@@ -22,7 +22,7 @@ validate.classificationRules = () => {
 
 validate.checkClassificationName = async(req, res, next) => {
     const { classification_name } = req.body
-    let errors = []
+    const errors = []
     errors = validationResult(req)
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
@@ -109,7 +109,7 @@ validate.checkInventoryData = async(req, res, next) => {
         inv_color,
         classification_id
     } = req.body
-    let errors = []
+    const errors = []
     errors = validationResult(req)
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()
@@ -153,7 +153,7 @@ validate.checkUpdateData = async(req, res, next) => {
         classification_id,
         inv_id
     } = req.body
-    let errors = []
+    const errors = []
     errors = validationResult(req)
     if (!errors.isEmpty()) {
         let nav = await utilities.getNav()

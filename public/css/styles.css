@@ -7,18 +7,14 @@
 
 body {
   margin: 0;
+  padding: 0;
   font-family: 'Poppins', sans-serif;
   background-color: white;
   color: black;
-}
-
-body {
   background-image: url("/images/site/checkerboard.jpg");
   background-repeat: repeat;
   background-size: auto;
-  font-family: 'Poppins', sans-serif;
-  margin: 0;
-  padding: 0;
+  position: relative;
 }
 
 body::before {
@@ -98,6 +94,9 @@ h1, h2 {
 }
 
 .upgrade-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
@@ -105,14 +104,19 @@ h1, h2 {
   width: 100px;
   height: auto;
   border-radius: 4px;
+  margin-bottom: 0.5rem; /* spacing between image and label */
 }
 
 .upgrade-item a {
-  display: block;
-  margin-top: 0.5rem;
   text-decoration: none;
   color: #0967a9;
   font-weight: bold;
+  font-size: 1rem;
+}
+
+.upgrade-item a:hover {
+  color: #c87f0a;
+  text-decoration: underline;
 }
 
 
@@ -123,14 +127,9 @@ nav {
 }
 
 nav ul li {
-  list-style-type: none;
-  display: block;
-  justify-content: center;
-  gap: 1rem;
-  margin: 0;
-  padding: 0 1rem 0 0;
-  float:left;
-  text-align: center;  
+  flex:1;
+  
+  text-align: center;
 }
 
 nav a {
@@ -191,10 +190,92 @@ footer {
 }
 
   nav ul {
-    flex-direction: column;
-    gap: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;    
   }
+
+  .vehicle-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #f4f4f4;
+}
+
+.vehicle-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  overflow: hidden;
+  text-align: center;
+  padding: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.vehicle-card:hover {
+  transform: scale(1.03);
+}
+
+.vehicle-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+
+.vehicle-card h3 {
+  margin: 0.5rem 0;
+  color: #2b4258;
+}
+
+.vehicle-card p {
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.vehicle-card a {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #0967a9;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.vehicle-card a:hover {
+  color: #c87f0a;
+}
 
   .vehicle-card {
     width: 90%;
   }
+
+  @media (max-width: 600px) {
+  .hero-section, .info-section {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul {
+    flex-direction: column;
+    float: none;
+    padding-left: 0;
+  }
+
+  .vehicle-card {
+    width: 100%;
+  }
+}
+
+.hero-image, .hero-details {
+    max-width: 100%;
+    margin: 1rem 0;
+  }
+
+  .upgrade-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+
